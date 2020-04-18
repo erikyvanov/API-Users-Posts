@@ -11,7 +11,7 @@ import (
 // MongoConnection es el objeto de conexión a la base de datos
 var MongoConnection = ConnectMongo()
 
-// Es el luegar donde esta la base de datos
+// Es el lugar donde esta la base de datos
 var uri string = ""
 var clientOptions = options.Client().ApplyURI(uri)
 
@@ -29,7 +29,7 @@ func ConnectMongo() *mongo.Client {
 		return client
 	}
 
-	log.Println("Conexion exitosa con la base de datos.")
+	log.Println("Conexión exitosa con la base de datos.")
 	return client
 }
 
