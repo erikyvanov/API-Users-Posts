@@ -9,6 +9,7 @@ import (
 )
 
 // CheckUserExists recibe un email y dice si ya esta registrado.
+// Devuelve el usuario encontrado, si lo encontro(true o false) y el ID del usuario encontrado
 func CheckUserExists(email string) (models.User, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
