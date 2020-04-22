@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/erikyvanov/API-Users-Posts/db"
-	"github.com/erikyvanov/API-Users-Posts/handlers"
+	"github.com/erikyvanov/API-Users-Posts/routers"
 )
 
 func main() {
@@ -12,5 +12,5 @@ func main() {
 		log.Fatal("No hay conexión a la base de datos.")
 	}
 
-	handlers.Handlers()
+	routers.Routers()
 }

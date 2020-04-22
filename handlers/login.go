@@ -1,4 +1,4 @@
-package routers
+package handlers
 
 import (
 	"encoding/json"
@@ -19,7 +19,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Usuario y/o Contraseña invalidos "+err.Error(), http.StatusBadRequest)
 		return
 	}
-
 	if len(u.Email) == 0 {
 		http.Error(w, "Email invalido.", http.StatusBadRequest)
 		return
@@ -27,7 +26,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	doc, exist := db.LoginTry(u.Email, u.Password)
 	if !exist {
-		http.Error(w, "Usuario y/o Contraseña invalidos "+err.Error(), http.StatusBadRequest)
+		http.Error(w, "Usuario y/o Contraseña invalidos.", http.StatusBadRequest)
 		return
 	}
 

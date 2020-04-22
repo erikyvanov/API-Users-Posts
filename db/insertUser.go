@@ -14,7 +14,7 @@ func InsertUser(u models.User) (string, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	dataBase := MongoConnection.Database("app1")
+	dataBase := MongoConnection.Database("API-Users-Posts")
 	collection := dataBase.Collection("users")
 
 	// Cifrar password

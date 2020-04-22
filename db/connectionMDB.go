@@ -12,7 +12,7 @@ import (
 var MongoConnection = ConnectMongo()
 
 // Es el lugar donde esta la base de datos
-var uri string = ""
+var uri string = "mongodb://localhost:27017"
 var clientOptions = options.Client().ApplyURI(uri)
 
 // ConnectMongo es una funcion que conecta con la base de datos MongoDB
