@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 
+	"github.com/erikyvanov/API-Users-Posts/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -11,9 +12,7 @@ import (
 // MongoConnection es el objeto de conexión a la base de datos
 var MongoConnection = ConnectMongo()
 
-// Es el lugar donde esta la base de datos
-var uri string = "mongodb://localhost:27017"
-var clientOptions = options.Client().ApplyURI(uri)
+var clientOptions = options.Client().ApplyURI(config.URI)
 
 // ConnectMongo es una funcion que conecta con la base de datos MongoDB
 func ConnectMongo() *mongo.Client {

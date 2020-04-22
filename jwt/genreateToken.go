@@ -4,13 +4,12 @@ import (
 	"time"
 
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/erikyvanov/API-Users-Posts/config"
 	"github.com/erikyvanov/API-Users-Posts/models"
 )
 
 // GenerateJWT Genera un token para uusuario
 func GenerateJWT(u models.User) (string, error) {
-	privateKey := []byte("HolaGithub")
-
 	payload := jwt.MapClaims{
 		"_id":         u.ID.Hex(),
 		"name":        u.Name,
@@ -22,7 +21,7 @@ func GenerateJWT(u models.User) (string, error) {
 		"exp":   time.Now().Add(time.Hour * 24).Unix(),
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, payload)
-	tokenStr, err := token.SignedString(privateKey)
+	tokenStr, err := token.SignedString(config.TokenKey)
 
 	if err != nil {
 		return tokenStr, err

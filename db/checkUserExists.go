@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/erikyvanov/API-Users-Posts/config"
 	"github.com/erikyvanov/API-Users-Posts/models"
 	"go.mongodb.org/mongo-driver/bson"
 )
@@ -14,7 +15,7 @@ func CheckUserExists(email string) (models.User, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	dataBase := MongoConnection.Database("API-Users-Posts")
+	dataBase := MongoConnection.Database(config.DBName)
 	collection := dataBase.Collection("users")
 
 	filter := bson.M{"email": email}
