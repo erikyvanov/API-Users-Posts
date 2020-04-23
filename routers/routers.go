@@ -18,6 +18,7 @@ func Routers() {
 	//Crear rutas
 	router.HandleFunc("/user", middlewares.CheckDB(handlers.Register)).Methods("POST")
 	router.HandleFunc("/login", middlewares.CheckDB(handlers.Login)).Methods("POST")
+	router.HandleFunc("/profile", middlewares.CheckDB(middlewares.ValidateJWT(handlers.ViewProfile))).Methods("GET")
 
 	//Creamos el PORT
 	PORT := os.Getenv("PORT")
