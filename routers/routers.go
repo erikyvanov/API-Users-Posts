@@ -21,6 +21,8 @@ func Routers() {
 	router.HandleFunc("/view-profile", middlewares.CheckDB(middlewares.ValidateJWT(handlers.ViewProfile))).Methods("GET")
 	router.HandleFunc("/modify-profile", middlewares.CheckDB(middlewares.ValidateJWT(handlers.ModifyProfile))).Methods("PUT")
 
+	router.HandleFunc("/post", middlewares.CheckDB(middlewares.ValidateJWT(handlers.NewPost))).Methods("POST")
+
 	//Creamos el PORT
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
