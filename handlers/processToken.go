@@ -10,10 +10,10 @@ import (
 	"github.com/erikyvanov/API-Users-Posts/models"
 )
 
-// Email guarda el email del usuario que esta siendo procesado
+// Email guarda el email del usuario que esta siendo procesado (autenticacion token)
 var Email string
 
-// IDUser guarda el ID del usuario que esta siendo procesado
+// IDUser guarda el ID del usuario que esta siendo procesado (autenticacion token)
 var IDUser string
 
 // ProcessToken valida un token
