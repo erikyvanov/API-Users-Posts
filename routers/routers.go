@@ -28,6 +28,8 @@ func Routers() {
 	router.HandleFunc("/uploadAvatar", middlewares.CheckDB(middlewares.ValidateJWT(handlers.UploadAvatar))).Methods("POST")
 	router.HandleFunc("/getAvatar", middlewares.CheckDB(handlers.GetAvatar)).Methods("GET")
 
+	router.HandleFunc("/relation", middlewares.CheckDB(middlewares.ValidateJWT(handlers.Relation))).Methods("POST")
+
 	//Creamos el PORT
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
