@@ -34,6 +34,8 @@ func Routers() {
 
 	router.HandleFunc("/listUsers", middlewares.CheckDB(middlewares.ValidateJWT(handlers.ListUsers))).Methods("GET")
 
+	router.HandleFunc("/readFollowedPosts", middlewares.CheckDB(middlewares.ValidateJWT(handlers.ReadPostsRelations))).Methods("GET")
+
 	//Creamos el PORT
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
