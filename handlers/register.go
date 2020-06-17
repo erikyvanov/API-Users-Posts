@@ -19,17 +19,17 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(newUser.Email) == 0 {
-		http.Error(w, "Error: Se requiere un email.", http.StatusBadRequest)
+		http.Error(w, "Se requiere un email.", http.StatusBadRequest)
 		return
 	}
 	if len(newUser.Email) < 6 {
-		http.Error(w, "Error: La contraseña tiene que tener minimo 6 caracteres.", http.StatusBadRequest)
+		http.Error(w, "La contraseña tiene que tener minimo 6 caracteres.", http.StatusBadRequest)
 		return
 	}
 
 	_, exists, _ := db.CheckUserExists(newUser.Email)
 	if exists {
-		http.Error(w, "Error: Ya hay un usuario registrado con ese email", http.StatusBadRequest)
+		http.Error(w, "Ya hay un usuario registrado con ese email", http.StatusBadRequest)
 		return
 	}
 

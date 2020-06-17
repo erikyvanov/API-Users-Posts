@@ -10,7 +10,7 @@ import (
 func main() {
 	if !db.ConnectionOK() {
 		log.Fatal("No hay conexión a la base de datos.")
+	} else {
+		routers.Routers()
 	}
-
-	routers.Routers()
 }

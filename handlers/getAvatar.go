@@ -22,7 +22,7 @@ func GetAvatar(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	openAvatar, err := os.Open("uploads/avatars" + user.Avatar)
+	openAvatar, err := os.Open("uploads/avatars/" + user.Avatar)
 	if err != nil {
 		http.Error(w, "Imagen no encontrada", http.StatusBadRequest)
 		return

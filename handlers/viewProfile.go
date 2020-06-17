@@ -17,11 +17,11 @@ func ViewProfile(w http.ResponseWriter, r *http.Request) {
 
 	profile, err := db.SearchProfile(ID)
 	if err != nil {
-		http.Error(w, "Error al buscar al usuario."+err.Error(), http.StatusBadRequest)
+		http.Error(w, "El usuario no existe", http.StatusBadRequest)
 		return
 	}
 
-	w.Header().Set("context-type", "application/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(profile)
 }

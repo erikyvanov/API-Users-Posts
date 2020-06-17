@@ -13,6 +13,7 @@ func ModifyProfile(w http.ResponseWriter, r *http.Request) {
 	var u models.User
 
 	err := json.NewDecoder(r.Body).Decode(&u)
+
 	if err != nil {
 		http.Error(w, "Datos invalidos "+err.Error(), http.StatusBadRequest)
 		return

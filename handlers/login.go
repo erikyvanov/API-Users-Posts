@@ -11,7 +11,7 @@ import (
 
 // Login es el manejador para iniciar sesion en la app
 func Login(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("content-type", "application/json")
+	w.Header().Add("Content-Type", "application/json")
 
 	var u models.User
 	err := json.NewDecoder(r.Body).Decode(&u)

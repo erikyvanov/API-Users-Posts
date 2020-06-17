@@ -19,6 +19,11 @@ func NewPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if len(m.Message) == 0 {
+		http.Error(w, "El post esta vacio", http.StatusBadRequest)
+		return
+	}
+
 	post := models.Post{
 		UserID: IDUser,
 		Body:   m.Message,

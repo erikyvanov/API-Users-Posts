@@ -24,15 +24,15 @@ func ModifyRegister(u models.User, ID string) (bool, error) {
 	if len(u.Avatar) > 0 {
 		updates["avatar"] = u.Avatar
 	}
-	if len(u.Description) > 0 {
-		updates["description"] = u.Description
-	}
 	if len(u.LastName) > 0 {
 		updates["lastname"] = u.LastName
 	}
 	if len(u.Name) > 0 {
 		updates["name"] = u.Name
 	}
+	updates["description"] = u.Description
+	updates["birthday"] = u.Birthday
+	updates["location"] = u.Location
 
 	// Meter los cambios que se van a hacer
 	updtString := bson.M{
