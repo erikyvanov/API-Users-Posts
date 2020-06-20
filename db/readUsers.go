@@ -12,6 +12,7 @@ import (
 )
 
 // ReadUsers lee todos los uaurios en la base de datos
+// Recibe el ID del usuario, la pagina, el nombre de quien va a buscar, el tipo de busqueda
 func ReadUsers(ID string, page int64, search string, tipo string) ([]*models.User, bool) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()

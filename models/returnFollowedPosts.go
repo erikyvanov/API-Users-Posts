@@ -12,7 +12,7 @@ type ReturnFollowePost struct {
 	UserID     string             `bson:"userid" json:"userId,omitempty"`
 	RelationID string             `bson:"relationid" json:"relationId,omitempty"`
 
-	Post struct {
+	Posts struct {
 		Body string    `bson:"body" json:"body,omitempty"`
 		Date time.Time `bson:"date" json:"date,omitempty"`
 		ID   string    `bson:"_id" json:"_id,omitempty"`
